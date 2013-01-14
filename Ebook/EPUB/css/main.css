@@ -1,0 +1,36 @@
+@import "../fonts/fonts.css";
+
+
+body {
+  margin: 0;
+}
+
+* {
+  orphans: 2;
+   widows: 2;
+}
+
+p {
+  orphans: 2;
+   widows: 2;
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+          hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6,
+table, img, figure {
+  page-break-inside: avoid;
+}
+
+[data-page-break~=after] {
+  page-break-after: always;
+}
+
+[data-page-break~=before]:not(img) {
+  page-break-before: always;
+}
+
+img[data-page-break~=before] {
+	page-break-before: left;
+}

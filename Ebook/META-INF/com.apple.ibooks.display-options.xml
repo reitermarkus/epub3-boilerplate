@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<display_options>
+  <platform name='*'>                            <!--| */iphone/ipad                     | Set which platform the contained options are used for. |-->
+    <option name='fixed-layout'>false</option>   <!--| true/false                        | Set wether or not to use iBooks' fixed layout.         |-->
+    <option name='specified-fonts'>true</option> <!--| true/false                        | Enable use of custom fonts (webfonts via @font-face).  |-->
+    <option name='open-to-spread'>false</option> <!--| true/false                        | Set wether or not to open the book full spread.        |-->
+    <option name='orientation-lock'>none</option><!--| none/portrait-only/landscape-only | Set orientation-lock in portrait or landscape mode.    |-->
+    <option name='interactive'>false</option>    <!--| true/false                        | Enables JavaScript and Canvas elements.                |-->
+  </platform>
+</display_options>
