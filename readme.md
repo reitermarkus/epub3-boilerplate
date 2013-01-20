@@ -12,7 +12,7 @@ http://git.io/epub3-boilerplate
         ▪ com.apple.ibooks.display-options.xml
         ▪ container.xml
       ▪ mimetype
-      ▾ OPS/
+      ▾ OPS/ (Open Publishing Structure)
         ▾ book/
           ▪ content.html
           ▪ cover.html
