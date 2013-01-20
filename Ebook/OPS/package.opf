@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package xmlns='http://www.idpf.org/2007/opf' version='3.0' unique-identifier='uuid' xmlns:dc='http://purl.org/dc/elements/1.1/'>
+
+  <metadata>
+
+    <!-- General Data -->
+    <dc:title>EPUB Template</dc:title>    
+    <dc:description>This template is meant as a starting point, so customise it!</dc:description>
+
+    <dc:creator>Forename Surname</dc:creator>
+
+    <!-- Publisher Information-->
+    <dc:publisher>The Publisher</dc:publisher>
+    <dc:date>1970-01-01</dc:date>
+
+    <!-- Special Info -->
+    <dc:identifier id='uuid'>00000000-0000-0000-0000-000000000000</dc:identifier>
+    <dc:language>en</dc:language>
+    <meta property='dcterms:modified'>1970-01-01T00:00:00Z</meta>
+
+    <!-- Rights -->
+    <dc:rights>Copyright Statement</dc:rights>
+
+    <meta name='cover' content='coverimage' />
+
+  </metadata>
+
+  <manifest>
+
+    <item media-type='application/x-dtbncx+xml' id='toc'                  href='book/table-of-contents.ncx'/>
+
+    <!-- Fonts -->						  
+    <item media-type='application/font-woff'    id='font-someawesomefont' href='fonts/someawesomefont.woff'/>
+
+    <!-- CSS -->
+    <item media-type='text/css'                 id='fonts'                href='fonts/fonts.css'/>
+    <item media-type='text/css'                 id='css-main'             href='css/main.css'/>
+
+    <!-- HTML -->
+    <item media-type='application/xhtml+xml'    id='book-cover'           href='book/cover.html'/>
+    <item media-type='application/xhtml+xml'    id='book-toc'             href='book/table-of-contents.html' properties='nav'/>
+    <item media-type='application/xhtml+xml'    id='book-content'         href='book/content.html'/>
+
+    <!-- Images -->
+    <item media-type='image/jpeg'               id='coverimage'           href='images/cover.jpg' properties='cover-image'/>
+
+  </manifest>
+
+  <spine toc='toc'>
+    <itemref idref='book-cover' linear='no'/>
+    <itemref idref='book-toc'/>
+    <itemref idref='book-content'/>
+  </spine>
+
+  <guide>
+    <reference type='cover' href='book/cover.html'            title='Book Cover'/>
+    <reference type='toc'   href='book/table-of-contents.html' title='Table of Contents'/>
+    <reference type='text'  href='book/content.html'/>
+  </guide>
+
+</package>
