@@ -5,32 +5,33 @@ body {
   margin: 0;
 }
 
-* {
-  orphans: 2;
-   widows: 2;
+h1, h2 { /* Disable hyphenation for headings to avoid single-syllable-lines. */
+  -webkit-hyphens: none;
+     -moz-hyphens: none;
+          hyphens: none;
 }
 
-p {
+p, blockquote {
   orphans: 2;
-   widows: 2;
+  widows: 2;
+}
+
+p { /* Turn on hyphenation for paragraphs only. */
   -webkit-hyphens: auto;
      -moz-hyphens: auto;
           hyphens: auto;
 }
 
+
+
+/*  Shortcodes for page-break rules.
+    Use data attributes to designate if and how the page should be broken before, inside or after an element.
+*/
 h1, h2, h3, h4, h5, h6,
-table, img, figure {
-  page-break-inside: avoid;
-}
-
-[data-page-break~=after] {
-  page-break-after: always;
-}
-
-[data-page-break~=before]:not(img) {
-  page-break-before: always;
-}
-
-img[data-page-break~=before] {
-	page-break-before: left;
-}
+table, img, figure, video,
+[data-page-break~=inside][data-page-break~=avoid] { page-break-inside:  avoid; }
+[data-page-break~=after]                          { page-break-after:  always; }
+[data-page-break~=after][data-page-break~=avoid]  { page-break-after:   avoid; }
+[data-page-break~=before]                         { page-break-before: always; }
+[data-page-break~=before][data-page-break~=avoid] { page-break-before:  avoid; }
+img[data-page-break~=before]                      { page-break-before:   left; }
