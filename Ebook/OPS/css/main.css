@@ -5,19 +5,25 @@ body {
   margin: 0;
 }
 
-h1, h2 { /* Disable hyphenation for headings to avoid single-syllable-lines. */
+/*  Disable hyphenation for headings to avoid single-syllable-lines.
+*/
+h1,
+h2 {
 	  -epub-hyphens: none;
   -webkit-hyphens: none;
      -moz-hyphens: none;
           hyphens: none;
 }
 
-p, blockquote {
+p,
+blockquote {
   orphans: 2;
   widows: 2;
 }
 
-p { /* Turn on hyphenation for paragraphs only. */
+/*  Turn on hyphenation for paragraphs only.
+*/
+p {
 	  -epub-hyphens: auto;
   -webkit-hyphens: auto;
      -moz-hyphens: auto;
@@ -25,11 +31,9 @@ p { /* Turn on hyphenation for paragraphs only. */
 }
 
 
-
 /*  Shortcodes for page-break rules.
     Use data attributes to designate if and how the page should be broken before, inside or after an element.
 */
-
 h1, h2, h3, h4, h5, h6,
 table, img, figure, video,
 [data-page-break~=inside][data-page-break~=avoid] { page-break-inside:  avoid; }
@@ -39,3 +43,9 @@ h1, h2, h3, h4, h5, h6,
 [data-page-break~=before]                         { page-break-before: always; }
 [data-page-break~=before][data-page-break~=avoid] { page-break-before:  avoid; }
 img[data-page-break~=before]                      { page-break-before:   left; }
+
+
+
+/*  Custom Styles
+*/
+
