@@ -39,13 +39,13 @@
     <!-- Author Info -->
     <dc:creator id='author'>Forename Surname</dc:creator>
     <meta refines='#author' property='file-as'>Surname, Forename</meta>
-    <meta refines='#author' property='role' scheme='marc:relators' id='role'>aut</meta>
+    <meta refines='#author' property='role' scheme='marc:relators'>aut</meta>
 
 
     <!-- Publisher Info-->
     <dc:publisher id='publisher'>The Publisher</dc:publisher>
     <meta refines='#publisher' property='file-as'>Publisher, The</meta>
-    <meta refines='#publisher' property='role' scheme='marc:relators' id='role'>pbl</meta>
+    <meta refines='#publisher' property='role' scheme='marc:relators'>pbl</meta>
 
     <dc:rights>Copyright Statement</dc:rights>
 
