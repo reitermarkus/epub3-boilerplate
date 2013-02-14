@@ -1,6 +1,10 @@
+@namespace epub 'http://www.idpf.org/2007/ops';
+
+
 @import "../fonts/fonts.css";
 
-
+/* Remove margin for WebKit-based reading systems.
+*/
 body {
   margin: 0;
 }
@@ -15,21 +19,23 @@ h2 {
           hyphens: none;
 }
 
+/* Set the minimum amount of lines to show up on a seperate page. (There is not much support for this at the moment.)
+*/
 p,
 blockquote {
   orphans: 2;
   widows: 2;
 }
 
-/*  Turn on hyphenation for paragraphs only.
+/*  Turn on hyphenation for paragraphs and captions only.
 */
-p {
+p,
+figcaption {
 	  -epub-hyphens: auto;
   -webkit-hyphens: auto;
      -moz-hyphens: auto;
           hyphens: auto;
 }
-
 
 /*  Shortcodes for page-break rules.
     Use data attributes to designate if and how the page should be broken before, inside or after an element.
@@ -43,7 +49,6 @@ h1, h2, h3, h4, h5, h6,
 [data-page-break~=before]                         { page-break-before: always; }
 [data-page-break~=before][data-page-break~=avoid] { page-break-before:  avoid; }
 img[data-page-break~=before]                      { page-break-before:   left; }
-
 
 
 /*  Custom Styles

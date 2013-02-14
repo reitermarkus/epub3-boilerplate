@@ -50,7 +50,7 @@
     <dc:rights>Copyright Statement</dc:rights>
 
 
-    <meta name='cover' content='coverimage' />
+    <meta name='cover' content='coverimage'/>
 
 
   </metadata>
@@ -62,7 +62,7 @@
     <item media-type='application/xhtml+xml'    id='book-toc'             href='book/table-of-contents.html' properties='nav'/>
     <item media-type='application/xhtml+xml'    id='book-content'         href='book/content.html'/>
 
-    <!-- Fonts -->						  
+    <!-- Fonts -->
     <item media-type='application/font-woff'    id='font-someawesomefont' href='fonts/someawesomefont.woff'/>
 
     <!-- CSS -->
