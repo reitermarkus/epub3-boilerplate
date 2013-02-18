@@ -1,7 +1,8 @@
-<?xml version='1.0'?>
+<?xml version='1.0' encoding='utf-8'?>
 <package version='3.0'
          unique-identifier='pub-id'
-         xmlns='http://www.idpf.org/2007/opf'>
+         xmlns='http://www.idpf.org/2007/opf'
+         prefix='ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/'>
   <metadata xmlns:dc='http://purl.org/dc/elements/1.1/'>
 
 
@@ -53,30 +54,36 @@
     <meta name='cover' content='coverimage'/>
 
 
-  </metadata>
-  <manifest>
+    <meta property='ibooks:version'>1.0.0</meta>               <!--                          | Set book version.                           -->
+    <meta property='ibooks:specified-fonts'>true</meta>        <!-- true/false               | Enable custom fonts (via @font-face).       -->
+    <meta property='rendition:layout'>reflowable</meta>        <!-- reflowable/pre-paginated | Set wether or not to use a fixed layout.    -->
+    <meta property='rendition:spread'>none</meta>              <!-- (auto|both)/none         | Set spread behaviour when opening.          -->
+    <meta property='rendition:orientation'>auto</meta>         <!-- auto/portrait/landscape  | Set portrait or landscape orientation-lock. -->
+    <meta property='ibooks:iphone-orientation-lock'>none</meta><!-- portrait-only/landscape-only/none                                      -->
+    <meta property='ibooks:ipad-orientation-lock'>none</meta>  <!-- portrait-only/landscape-only/none                                      -->
+
+  </metadata><manifest>
 
 
     <!-- Book -->
-    <item media-type='application/xhtml+xml'    id='book-cover'           href='book/cover.html'/>
-    <item media-type='application/xhtml+xml'    id='book-toc'             href='book/table-of-contents.html' properties='nav'/>
-    <item media-type='application/xhtml+xml'    id='book-content'         href='book/content.html'/>
+    <item media-type='application/xhtml+xml' id='book-cover'           href='book/cover.html'/>
+    <item media-type='application/xhtml+xml' id='book-toc'             href='book/table-of-contents.html' properties='nav'/>
+    <item media-type='application/xhtml+xml' id='book-content'         href='book/content.html'/>
 
     <!-- Fonts -->
-    <item media-type='application/font-woff'    id='font-someawesomefont' href='fonts/someawesomefont.woff'/>
+    <item media-type='application/font-woff' id='font-someawesomefont' href='fonts/someawesomefont.woff'/>
 
     <!-- CSS -->
-    <item media-type='text/css'                 id='css-fonts'            href='fonts/fonts.css'/>
-    <item media-type='text/css'                 id='css-main'             href='css/main.css'/>
+    <item media-type='text/css'              id='css-fonts'            href='fonts/fonts.css'/>
+    <item media-type='text/css'              id='css-main'             href='css/main.css'/>
 
     <!-- Images -->
-    <item media-type='image/jpeg'               id='coverimage'           href='images/cover.jpg' properties='cover-image'/>
+    <item media-type='image/jpeg'            id='coverimage'           href='images/cover.jpg' properties='cover-image'/>
 
 
-  </manifest>
-  <spine>
- 
-  
+  </manifest><spine>
+
+
     <itemref idref='book-cover' linear='no'/>
     <itemref idref='book-toc'/>
     <itemref idref='book-content'/>
