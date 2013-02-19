@@ -55,13 +55,14 @@
     <meta name='cover' content='coverimage'/>
 
 
-    <meta property='ibooks:version'>1.0.0</meta>               <!--                          | Set book version.                           -->
+    <meta property='ibooks:version'>1.0.0</meta>               <!--                          | Set book version. [major].[minor].[bugfix]  -->
     <meta property='ibooks:specified-fonts'>true</meta>        <!-- true/false               | Enable custom fonts (via @font-face).       -->
     <meta property='rendition:layout'>reflowable</meta>        <!-- reflowable/pre-paginated | Set wether or not to use a fixed layout.    -->
     <meta property='rendition:spread'>none</meta>              <!-- (auto|both)/none         | Set spread behaviour when opening.          -->
     <meta property='rendition:orientation'>auto</meta>         <!-- auto/portrait/landscape  | Set portrait or landscape orientation-lock. -->
     <meta property='ibooks:iphone-orientation-lock'>none</meta><!-- portrait-only/landscape-only/none                                      -->
     <meta property='ibooks:ipad-orientation-lock'>none</meta>  <!-- portrait-only/landscape-only/none                                      -->
+
 
   </metadata><manifest>
 
