@@ -31,7 +31,7 @@ http://git.io/epub3-boilerplate
 
 # How To Use
 
-As the author of this template I myself have used it a lot already and everytime I find something new I need in a book, I add it to this template. So, what I suggest you do is you really start fresh, creating a new folder and adding only what you need, otherwise I find it is tough keeping track of what you have changed, added or deleted. Have fun coding!
+As the author of this template I myself have used it a lot already and everytime I find something new I need in a book, I add it to this template. So, what I suggest you do is you really start fresh, creating a new folder and adding only what you need, otherwise I find it tough to keep track of what you have changed, added or deleted. Have fun coding!
 
 
 # Helpful Resources
