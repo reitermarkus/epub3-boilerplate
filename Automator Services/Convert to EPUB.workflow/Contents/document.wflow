@@ -1,38 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>actions</key>
-	<array>
-		<dict>
-			<key>action</key>
-			<dict>
-				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run AppleScript.action</string>
-				<key>ActionParameters</key>
-				<dict>
-					<key>source</key>
-					<string>on run {input, parameters}	repeat with EPUB_folder in input				set carry_on to true		set alertApp to "Problem Reporter"				tell application "Finder"			set EPUB_file_name to (name of folder EPUB_folder as text) &amp; ".epub"			set EPUB_save_folder to container of EPUB_folder as text			set EPUB_file to EPUB_save_folder &amp; EPUB_file_name			set EPUB_exists to EPUB_file exists		end tell				if EPUB_exists then tell application alertApp to if button returned of (display alert "The file “" &amp; EPUB_file_name &amp; "” already exists." message "Do you want to replace it?" &amp; return &amp; "(The old file will be moved to the Trash.)" buttons {"Cancel ", "Replace"}) is equal to "Replace" then			tell application "Finder" to move EPUB_file to trash		else			set carry_on to false		end if				if (carry_on) then try			set EPUB_folder_path to POSIX path of EPUB_folder			set EPUB_file_path to POSIX path of EPUB_file			set result to do shell script "zip -jX0 '" &amp; EPUB_file_path &amp; "' '" &amp; EPUB_folder_path &amp; "/mimetype'"		on error result			tell application alertApp to display alert "Error adding mimetype file:" message result buttons ("OK")			set carry_on to false		end try				if (carry_on) then try			set result to do shell script "cd '" &amp; EPUB_folder_path &amp; "'; zip -rDX9 '" &amp; EPUB_file_path &amp; "' * -x *.DS_Store -x mimetype"		on error result			tell application alertApp to display alert "Error adding files to EPUB file:" message result buttons ("OK")			set carry_on to false		end try			end repeatend run</string>
-				</dict>
-			</dict>
-		</dict>
-	</array>
-	<key>connectors</key>
-	<dict/>
-	<key>workflowMetaData</key>
-	<dict>
-		<key>serviceApplicationBundleID</key>
-		<string>com.apple.finder</string>
-		<key>serviceApplicationPath</key>
-		<string>/System/Library/CoreServices/Finder.app</string>
-		<key>serviceInputTypeIdentifier</key>
-		<string>com.apple.Automator.fileSystemObject.folder</string>
-		<key>serviceOutputTypeIdentifier</key>
-		<string>com.apple.Automator.nothing</string>
-		<key>serviceProcessesInput</key>
-		<integer>0</integer>
-		<key>workflowTypeIdentifier</key>
-		<string>com.apple.Automator.servicesMenu</string>
-	</dict>
-</dict>
-</plist>

@@ -1,0 +1,3 @@
+[submodule "epub-services"]
+	path = epub-services
+	url = https://github.com/reitermarkus/epub-services.git

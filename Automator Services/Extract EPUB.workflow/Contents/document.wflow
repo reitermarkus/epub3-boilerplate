@@ -1,36 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>actions</key>
-	<array>
-		<dict>
-			<key>action</key>
-			<dict>
-				<key>ActionBundlePath</key>
-				<string>/System/Library/Automator/Run AppleScript.action</string>
-				<key>ActionParameters</key>
-				<dict>
-					<key>source</key>
-					<string>on run {input, parameters}	repeat with EPUB_file in input				set carry_on to true		set alertApp to "Problem Reporter"				tell application "Finder"			set EPUB_name to (do shell script "f='" &amp; (name of file EPUB_file as text) &amp; "'; echo ${f%.*}")			set EPUB_folder to (container of EPUB_file as text) &amp; EPUB_name						set EPUB_folder_exists to EPUB_folder exists		end tell				if EPUB_folder_exists then tell application alertApp to if button returned of (display alert "The folder “" &amp; EPUB_name &amp; "” already exists." message "Do you want to replace it?" &amp; return &amp; "(The old folder will be moved to the Trash.)" buttons {"Cancel ", "Replace"}) is equal to "Replace" then			tell application "Finder" to move EPUB_folder to trash		else			set carry_on to false		end if				if (carry_on) then try			set result to do shell script "unzip -od '" &amp; (POSIX path of EPUB_folder) &amp; "' '" &amp; (POSIX path of EPUB_file) &amp; "'"		on error result			tell application alertApp to display alert "Error unzipping EPUB file:" message result buttons ("OK")			set carry_on to false		end try			end repeatend run</string>
-				</dict>
-			</dict>
-		</dict>
-	</array>
-	<key>workflowMetaData</key>
-	<dict>
-		<key>serviceApplicationBundleID</key>
-		<string>com.apple.finder</string>
-		<key>serviceApplicationPath</key>
-		<string>/System/Library/CoreServices/Finder.app</string>
-		<key>serviceInputTypeIdentifier</key>
-		<string>com.apple.Automator.fileSystemObject</string>
-		<key>serviceOutputTypeIdentifier</key>
-		<string>com.apple.Automator.nothing</string>
-		<key>serviceProcessesInput</key>
-		<integer>0</integer>
-		<key>workflowTypeIdentifier</key>
-		<string>com.apple.Automator.servicesMenu</string>
-	</dict>
-</dict>
-</plist>
