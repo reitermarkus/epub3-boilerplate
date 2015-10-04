@@ -2,8 +2,7 @@
 <package version='3.0'
          unique-identifier='pub-id'
          xmlns='http://www.idpf.org/2007/opf'
-         prefix='rendition: http://www.idpf.org/vocab/rendition/#
-                 ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/'>
+         prefix='ibooks: http://vocabulary.itunes.apple.com/rdf/ibooks/vocabulary-extensions-1.0/'>
   <metadata xmlns:dc='http://purl.org/dc/elements/1.1/'>
 
 
@@ -68,22 +67,24 @@
 
 
     <!-- Book -->
-    <item media-type='application/xhtml+xml' id='book-cover'           href='book/cover.html'/>
-    <item media-type='application/xhtml+xml' id='book-toc'             href='book/table-of-contents.html' properties='nav'/>
-    <item media-type='application/xhtml+xml' id='book-content'         href='book/content.html'/>
+    <item media-type='application/xhtml+xml'    id='book-cover'           href='book/cover.xhtml'/>
+    <item media-type='application/xhtml+xml'    id='book-toc'             href='book/table-of-contents.xhtml' properties='nav'/>
+    <item media-type='application/x-dtbncx+xml' id='book-toc-ncx'         href='book/table-of-contents.ncx'/>
+    <item media-type='application/xhtml+xml'    id='book-content'         href='book/content.xhtml'/>
 
     <!-- Fonts -->
-    <item media-type='application/font-woff' id='font-someawesomefont' href='fonts/someawesomefont.woff'/>
+    <item media-type='application/font-woff'    id='font-someawesomefont' href='fonts/someawesomefont.woff'/>
 
     <!-- CSS -->
-    <item media-type='text/css'              id='css-fonts'            href='fonts/fonts.css'/>
-    <item media-type='text/css'              id='css-main'             href='css/main.css'/>
+    <item media-type='text/css'                 id='css-fonts'            href='fonts/fonts.css'/>
+    <item media-type='text/css'                 id='css-main'             href='css/main.css'/>
 
     <!-- Images -->
-    <item media-type='image/jpeg'            id='coverimage'           href='images/cover.jpg' properties='cover-image'/>
+    <item media-type='image/png'                id='coverimage'           href='images/cover.png' properties='cover-image'/>
 
 
-  </manifest><spine>
+  </manifest>
+  <spine toc='book-toc-ncx'>
 
 
     <itemref idref='book-cover' linear='no'/>

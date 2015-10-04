@@ -1,6 +1,6 @@
 EPUB 3 Boilerplate
 ==================
-An EPUB 3.0 template to help you get started with your ebook. (Includes iBooks display options.)  
+An EPUB 3.0 template (including iBooks display options) to help you get started with your ebook.
 http://git.io/epub3-boilerplate
 
 ---
@@ -18,14 +18,14 @@ http://git.io/epub3-boilerplate
           ▪ cover.html
           ▪ title.html
           ▪ table-of-contents.html
-          ▪ table-of-contents.ncx
+          ▪ table-of-contents.ncx (only needed for EPUB 2.0 backward-compatibility)
         ▾ css/
           ▪ style.css
         ▾ fonts/
           ▪ fonts.css
           ▪ someawesomefont.woff
         ▾ images/
-          ▪ cover.jpg
+          ▪ cover.png
         ▪ package.opf
 
 
