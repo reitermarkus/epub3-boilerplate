@@ -14,11 +14,11 @@ http://git.io/epub3-boilerplate
       ▪ mimetype
       ▾ OPS/ (Open Publishing Structure)
         ▾ book/
-          ▪ content.html
-          ▪ cover.html
-          ▪ title.html
-          ▪ table-of-contents.html
+          ▪ content.xhtml
+          ▪ cover.xhtml
+          ▪ title.xhtml
           ▪ table-of-contents.ncx (only needed for EPUB 2.0 backward-compatibility)
+          ▪ table-of-contents.xhtml
         ▾ css/
           ▪ style.css
         ▾ fonts/
@@ -33,6 +33,7 @@ http://git.io/epub3-boilerplate
 
 As the author of this template I myself have used it a lot already and everytime I find something new I need in a book, I add it to this template. So, what I suggest you do is you really start fresh, creating a new folder and adding only what you need, otherwise I find it tough to keep track of what you have changed, added or deleted. Have fun coding!
 
+To install the Automator services copy them to either `/Library/Services/` or `~/Library/Services/`.
 
 # Helpful Resources
 
