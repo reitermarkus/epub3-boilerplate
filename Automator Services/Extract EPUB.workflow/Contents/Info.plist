@@ -19,7 +19,7 @@
 			</dict>
 			<key>NSSendFileTypes</key>
 			<array>
-				<string>public.content</string>
+				<string>org.idpf.epub-container</string>
 			</array>
 		</dict>
 	</array>

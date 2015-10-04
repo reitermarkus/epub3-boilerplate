@@ -2,123 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AMApplicationBuild</key>
-	<string>346</string>
-	<key>AMApplicationVersion</key>
-	<string>2.3</string>
-	<key>AMDocumentVersion</key>
-	<string>2</string>
 	<key>actions</key>
 	<array>
 		<dict>
 			<key>action</key>
 			<dict>
-				<key>AMAccepts</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Optional</key>
-					<true/>
-					<key>Types</key>
-					<array>
-						<string>com.apple.applescript.object</string>
-					</array>
-				</dict>
-				<key>AMActionVersion</key>
-				<string>1.0.2</string>
-				<key>AMApplication</key>
-				<array>
-					<string>Automator</string>
-				</array>
-				<key>AMParameterProperties</key>
-				<dict>
-					<key>source</key>
-					<dict/>
-				</dict>
-				<key>AMProvides</key>
-				<dict>
-					<key>Container</key>
-					<string>List</string>
-					<key>Types</key>
-					<array>
-						<string>com.apple.applescript.object</string>
-					</array>
-				</dict>
 				<key>ActionBundlePath</key>
 				<string>/System/Library/Automator/Run AppleScript.action</string>
-				<key>ActionName</key>
-				<string>AppleScript ausführen</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	repeat with EPUB_file in input		unzip_EPUB(EPUB_file)	end repeatend runon remove_extension(file_name)	if file_name contains "." then		set file_name to (the reverse of every character of file_name) as string		set x to the offset of "." in file_name		set file_name to (text (x + 1) thru -1 of file_name)		set file_name to (the reverse of every character of file_name) as string	end if	return file_nameend remove_extensionon unzip_EPUB(EPUB_file)	set carry_on to true	tell application "Finder"		set EPUB_file_name to (name of file EPUB_file) as text	end tell		set EPUB_name to remove_extension(EPUB_file_name)		tell application "Finder"		set EPUB_save_folder to (container of EPUB_file) as text		set existing_EPUB_folder to (EPUB_save_folder &amp; EPUB_name)		try			get existing_EPUB_folder as alias			if existing_EPUB_folder exists then				set question to display dialog "The folder “" &amp; EPUB_name &amp; "” already exists.Do you want to replace it? (The old folder will be moved to the Trash.)" with title ¬					"ePub UnZip" with icon caution buttons {"Cancel ", "Replace"} default button 2				set answer to button returned of question				if answer is equal to "Replace" then					move existing_EPUB_folder to trash				else					set carry_on to false				end if			end if		end try	end tell		if (carry_on) then		try			tell application "Finder"				set EPUB_folder to (make new folder at EPUB_save_folder with properties {name:EPUB_name}) as text			end tell					on error result			try				display dialog "Problem creating the folder for the unzipped ePub:" with icon caution default answer result buttons ("Bother") default button 1			end try			set carry_on to false		end try	end if			if (carry_on) then		set EPUB_save_folder_path to (POSIX path of EPUB_folder) as text		set EPUB_file_path to (POSIX path of file (EPUB_save_folder &amp; EPUB_file_name))						set shell_command to ("cd \"" &amp; EPUB_save_folder_path &amp; "\";unzip \"" &amp; EPUB_file_path &amp; "\"")						try			set result to (do shell script shell_command)					on error result			try				display dialog "Problem unzipping the ePub:" with icon caution default answer result buttons ("Bother") default button 1			end try			set carry_on to false		end try	end if	end unzip_EPUB</string>
+					<string>on run {input, parameters}	repeat with EPUB_file in input				set carry_on to true		set alertApp to "Problem Reporter"				tell application "Finder"			set EPUB_name to (do shell script "f='" &amp; (name of file EPUB_file as text) &amp; "'; echo ${f%.*}")			set EPUB_folder to (container of EPUB_file as text) &amp; EPUB_name						set EPUB_folder_exists to EPUB_folder exists		end tell				if EPUB_folder_exists then tell application alertApp to if button returned of (display alert "The folder “" &amp; EPUB_name &amp; "” already exists." message "Do you want to replace it?" &amp; return &amp; "(The old folder will be moved to the Trash.)" buttons {"Cancel ", "Replace"}) is equal to "Replace" then			tell application "Finder" to move EPUB_folder to trash		else			set carry_on to false		end if				if (carry_on) then try			set result to do shell script "unzip -od '" &amp; (POSIX path of EPUB_folder) &amp; "' '" &amp; (POSIX path of EPUB_file) &amp; "'"		on error result			tell application alertApp to display alert "Error unzipping EPUB file:" message result buttons ("OK")			set carry_on to false		end try			end repeatend run</string>
 				</dict>
-				<key>BundleIdentifier</key>
-				<string>com.apple.Automator.RunScript</string>
-				<key>CFBundleVersion</key>
-				<string>1.0.2</string>
-				<key>CanShowSelectedItemsWhenRun</key>
-				<false/>
-				<key>CanShowWhenRun</key>
-				<true/>
-				<key>Category</key>
-				<array>
-					<string>AMCategoryUtilities</string>
-				</array>
-				<key>Class Name</key>
-				<string>RunScriptAction</string>
-				<key>IgnoresInput</key>
-				<false/>
-				<key>InputUUID</key>
-				<string>73638AB3-06DD-445B-82A5-E5ABE8F2D461</string>
-				<key>Keywords</key>
-				<array>
-					<string>Ausführen</string>
-				</array>
-				<key>OutputUUID</key>
-				<string>6BBC0D1B-ADE3-4A3C-A5C1-9C5EBF96BF6E</string>
-				<key>ShowWhenRun</key>
-				<false/>
-				<key>UUID</key>
-				<string>BBBB6A87-6C6A-4AC5-8BE7-33DEBE08480E</string>
-				<key>UnlocalizedApplications</key>
-				<array>
-					<string>Automator</string>
-				</array>
-				<key>arguments</key>
-				<dict>
-					<key>0</key>
-					<dict>
-						<key>default value</key>
-						<string>on run {input, parameters}
-	
-	(* Your script goes here *)
-	
-	return input
-end run</string>
-						<key>name</key>
-						<string>source</string>
-						<key>required</key>
-						<string>0</string>
-						<key>type</key>
-						<string>0</string>
-						<key>uuid</key>
-						<string>0</string>
-					</dict>
-				</dict>
-				<key>isViewVisible</key>
-				<true/>
-				<key>location</key>
-				<string>572.000000:812.000000</string>
-				<key>nibPath</key>
-				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/German.lproj/main.nib</string>
 			</dict>
-			<key>isViewVisible</key>
-			<true/>
 		</dict>
 	</array>
-	<key>connectors</key>
-	<dict/>
 	<key>workflowMetaData</key>
 	<dict>
 		<key>serviceApplicationBundleID</key>
@@ -126,7 +24,7 @@ end run</string>
 		<key>serviceApplicationPath</key>
 		<string>/System/Library/CoreServices/Finder.app</string>
 		<key>serviceInputTypeIdentifier</key>
-		<string>com.apple.Automator.fileSystemObject.document</string>
+		<string>com.apple.Automator.fileSystemObject</string>
 		<key>serviceOutputTypeIdentifier</key>
 		<string>com.apple.Automator.nothing</string>
 		<key>serviceProcessesInput</key>
